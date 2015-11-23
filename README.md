@@ -12,6 +12,11 @@ app.use('/static', express.static(__dirname + '/static'));
 var relativePath = path.join(__dirname + '../../another/folder');
 app.use('/public', express.static(relativePath));
 
+// send a single file
+app.get('/', function(req,res,next){
+   res.sendFile(path.join(__dirname, './index.html'));
+});
+
 // how to get
 app.get('/', function(req, res, next) {
   next();
